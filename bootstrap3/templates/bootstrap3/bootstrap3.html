@@ -76,10 +76,12 @@
         </p>
     {% endif %}
 
-    {% if software %}
-        <p>
-        {{ software }}
-        </p>
+    {% if software_list %}
+    <ul class="list-group">
+        {% for x, y in software_list %}
+        <li class="list-group-item"> {{ x }} {{ y }}</li>
+        {% endfor %}
+    </ul>
     {% endif %}
     {% endblock %}
 </div>

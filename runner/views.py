@@ -5,12 +5,15 @@ import datetime
 
 def index(request):
     from runner.models import Software
-    software = Software.objects.all()
+    software_list = []
+    for i in Software.objects.all():
+        i = str(i).split("|")
+        software_list.append(i)
 
     t = get_template("bootstrap3.html")
     html = t.render(Context({
             'bootstrap3_title': 'Run programs',
-            'software': software,
+            'software_list': software_list,
             }))
     return HttpResponse(html)
 

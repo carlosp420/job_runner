@@ -69,7 +69,11 @@
 </div>
 
 <div class="container">
-    {% block bootstrap3_content %}{% endblock %}
+    <div class="row">
+        <div class="col-md-8">
+            {% block bootstrap3_content %}{% endblock %}
+        </div><!-- end col-md-8 -->
+    </div><!-- end row -->
 </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
