@@ -7,6 +7,7 @@ class Uploader(models.Model):
 class Software(models.Model):
     program = models.CharField(max_length=100)
     version = models.CharField(max_length=100)
+    path    = models.CharField(max_length=250)
 
     def __unicode__(self):
         return u'%s|%s' % (self.program, self.version)
