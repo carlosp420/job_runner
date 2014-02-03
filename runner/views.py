@@ -3,8 +3,12 @@ from django.template import Template, Context
 from django.http import HttpResponse
 import datetime
 
-def hello(request):
-    return HttpResponse("hello world!")
+def index(request):
+    t = get_template("bootstrap3.html")
+    html = t.render(Context({
+            'bootstrap3_title': 'Run programs',
+            }))
+    return HttpResponse(html)
 
 def current_datetime(request):
     now = datetime.datetime.now()

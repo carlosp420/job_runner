@@ -65,13 +65,16 @@
     <h1>{{ bootstrap3_title }}</h1>
     {% endif %}
 
-    {% ifequal cpu "true" %}
-        <h2>Free for running analyses</h2>
-        <img src="{% static 'images/free.png' %}" />
-    {% else %}
-        <h2>The computer is busy for now</h2>
-        <img src="{% static 'images/alert.png' %}" />
-    {% endifequal %}
+    <h2>{{ cpu | safe }}</h2>
+    {% if cpu %}
+        <p>Each percentage reflects how much load is on each processor right now. If
+        the numbers are green the computer is free to use. If most processor are in
+        red, it means that many analyses are being run right now and running another one
+        might slow down the other person's analysis.</p>
+        <p>
+        Press F5 to refresh the status.
+        </p>
+    {% endif %}
     {% endblock %}
 </div>
 

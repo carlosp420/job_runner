@@ -2,6 +2,7 @@ from django.template.loader import get_template
 from django.template import Template, Context
 from django.http import HttpResponse
 import subprocess
+import psutil
 
 def index(request):
     t = get_template("bootstrap3.html")
@@ -13,14 +14,23 @@ def index(request):
     return HttpResponse(html)
 
 def get_cpu_load():
-    cmd = "uptime"
-    p = subprocess.check_output(cmd, shell=True)
-    p = p.strip().split(":")
-    p = p[4].strip().split(",")
-    free = "true"
-    for i in p:
-        if float(i.strip()) > 1.0:
-            free = "false"
-    # are the processors free?
-    return free
+    cpu = psutil.cpu_percent(interval=1, percpu=True)
+    out_cpu = []
+    for i in cpu:
+        if i < 26:
+            out = "<span style='color:green;'>"
+            out += str(i) + "%</span>"
+        elif i > 74:
+            out = "<span style='color:red;'>"
+            out += str(i) + "%</span>"
+        else:
+            out = "<span style='color:yellow;'>"
+            out += str(i) + "%</span>"
+        out_cpu.append(out)
+
+    out = ""
+    for i in out_cpu:
+        out += i + ", "
+    return out
+
 
