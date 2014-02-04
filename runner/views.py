@@ -17,10 +17,10 @@ def index(request):
             }))
     return HttpResponse(html)
 
-def software(request):
+def software(request, name):
     t = get_template("bootstrap3.html")
     html = t.render(Context({
-            'bootstrap3_title': 'Run programs',
+            'bootstrap3_title': 'Running ' + name,
             }))
     return HttpResponse(html)
 

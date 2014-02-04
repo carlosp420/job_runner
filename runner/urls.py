@@ -4,5 +4,5 @@ from runner.views import index, software
 
 urlpatterns = patterns('',
         url(r'^$', index),
-        url(r'software/^[A-Za-z]+$', software),
+        url(r'^software/(?P<name>[A-Za-z]+_\d\.\d\.*\d*)/$', software),
 )
