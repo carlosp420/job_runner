@@ -17,6 +17,13 @@ def index(request):
             }))
     return HttpResponse(html)
 
+def software(request):
+    t = get_template("bootstrap3.html")
+    html = t.render(Context({
+            'bootstrap3_title': 'Run programs',
+            }))
+    return HttpResponse(html)
+
 def current_datetime(request):
     now = datetime.datetime.now()
     t = get_template("bootstrap3.html")
