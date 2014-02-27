@@ -6,6 +6,7 @@
     <title>{{ bootstrap3_title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% bootstrap_css %}
+    <link href="/job_runner/favicon.ico" type="image/x-icon" rel="icon" />
   </head>
 <body>
 
@@ -19,7 +20,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/job_runner">Job runner</a>
+            <a class="navbar-brand" href="/">Job runner</a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -29,7 +30,7 @@
                 {% else %}
                     <li>
                 {% endifequal %}
-                    <a href="/job_runner/status">Sever status</a>
+                    <a href="/status">Sever status</a>
                 </li>
                 <li><a href="#">Link</a></li>
                 <li class="dropdown">
