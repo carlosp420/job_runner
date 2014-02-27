@@ -5,8 +5,18 @@ import datetime
 
 from django import forms
 
+def upload_file(request):
+    if request.method == "POST":
+        form = RunForm(request.POST, request.FILES)
+        if form.is_valid():
+            handle_uploaded_file(request.FILES['file'])
+            return HttpResponseRedirect("/success")
+        else:
+            form = RunForm()
+        return render_to_response("upload.html", {'form', form})
+
 class RunForm(forms.Form):
-    program = forms.CharField(max_lengh=100)
+    xml_beauty_file = forms.FileField()
 
 def index(request):
     from runner.models import Software
