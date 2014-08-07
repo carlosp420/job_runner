@@ -107,12 +107,7 @@ ROOT_URLCONF = 'job_runner.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'job_runner.wsgi.application'
 
-TEMPLATE_DIRS = (
-    "/data/projects/job_runner/bootstrap3/templates/bootstrap3",
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',
